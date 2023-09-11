@@ -34,7 +34,7 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => env('APP_COLOR'),
             ])
-            ->brandName(env('APP_NAME'))
+            ->brandName(str_replace('_',' ',env('APP_NAME')))
             ->navigationItems([
                 NavigationItem::make('Home')
                 ->url('http:\\www.venturatravels.in/admin')
