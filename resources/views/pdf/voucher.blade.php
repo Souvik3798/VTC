@@ -228,12 +228,12 @@
                 @endforeach
             @endforeach
         </table>
-        <footer  class="text-center mt-3">
+        {{-- <footer  class="text-center mt-3">
 
         <br>
         <br>
         <br><img style="width:100%; margin:0;" id="footer" src={{asset('images/footer.PNG')}} title="Sparkle Andaman" alt="Sparkle Andaman" />
-        </footer>
+        </footer> --}}
     </div>
 </body>
 </html>
