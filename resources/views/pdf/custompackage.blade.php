@@ -343,7 +343,7 @@
         </div>
 
         <!-- Total Price Section -->
-        {{-- <div class="section">
+         <div class="section">
             <div class="section-title">Total Price</div>
             <table>
                 <tr>
@@ -398,7 +398,7 @@
                     <td><strong>{{'Rs '.($grandtotalchildwithoutbed*$record->customers->childlessthan5) + ($grandtotalchildwithbed*$record->customers->childgreaterthan5) + ($grandtotalextraadult*$extracustomer) + ($grandtotaladult*$totalcustomers).'.00'}}</strong></td>
                 </tr>
             </table>
-        </div> --}}
+        </div>
     <footer style="font-family: Georgia, 'Times New Roman', Times, serif">
         Copyright 2023 <span style="color: blue">{{ str_replace('_',' ',env('APP_NAME'),)}} & IOXTIM Solutions</span>, All Right Reserved | Powered By <img src="{{asset('logo/ioxlogo.png')}}" style="margin-top: 10px;align-items: center" height="40px" alt="" srcset="">&nbsp;<img height="30px"src="{{asset('logo/ioxtypo.png')}}" alt="" srcset="">
     </footer>

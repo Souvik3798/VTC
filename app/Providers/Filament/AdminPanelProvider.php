@@ -37,7 +37,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandName(env('APP_NAME'))
             ->navigationItems([
                 NavigationItem::make('Home')
-                ->url('http:\\www.sparkleandaman.com\admin')
+                ->url('http:\\www.venturatravels.in/admin')
                 ->icon('heroicon-o-home')
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
