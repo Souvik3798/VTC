@@ -34,7 +34,7 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => env('APP_COLOR'),
             ])
-            ->brandName('Sparkle Andaman')
+            ->brandName(env('APP_NAME'))
             ->navigationItems([
                 NavigationItem::make('Home')
                 ->url('http:\\www.sparkleandaman.com\admin')
