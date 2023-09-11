@@ -154,7 +154,7 @@
                     <td>{{$record->category->name}}</td>
                     <td>{{$record->days}}</td>
                     <td>{{$record->nights}}</td>
-                    <td>₹{{$record->cost}}</td>
+                    <td>Rs{{$record->cost}}</td>
                 </tr>
             </table>
         </div>
@@ -210,7 +210,7 @@
                                         {{$temp->hotelName}}</td>
                                     <td>@php $temp = \App\Models\RoomCategory::find($room['room_type']) @endphp
                                         {{$temp->category}}</td>
-                                    <td>{{'₹ '.$room['price']}}</td>
+                                    <td>{{'Rs '.$room['price']}}</td>
                                 </tr>
                                 </table>
                                 <table>
@@ -224,23 +224,23 @@
                                 </tr>
                                 <tr>
                                     @php $totalroom = $totalroom + ($room['price'] * $room['days']); @endphp
-                                <td> {{'₹ '.$room['adult_mattress_price']}} </td>
+                                <td> {{'Rs '.$room['adult_mattress_price']}} </td>
                                 @php  $totaladultmatress =  $totaladultmatress + ($room['adult_mattress_price'] * $room['days']); @endphp
-                                <td> {{'₹ '.$room['child_without_mattress_price']}} </td>
+                                <td> {{'Rs '.$room['child_without_mattress_price']}} </td>
                                 @php $childwithoutbed = $childwithoutbed + ($room['child_without_mattress_price'] * $room['days']); @endphp
-                                <td> {{'₹ '.$room['child_with_mattress_price']}} </td>
+                                <td> {{'Rs '.$room['child_with_mattress_price']}} </td>
                                 @php
                                     $childwithbed = $childwithbed + ($room['child_with_mattress_price']*$room['days'])
                                 @endphp
-                                <td> {{'₹ '.$room['extra_meal_price']}} </td>
+                                <td> {{'Rs '.$room['extra_meal_price']}} </td>
                                 @php
                                      $totalextrameal =  $totalextrameal+($room['extra_meal_price']*$room['days'])
                                 @endphp
-                                <td> {{'₹ '.$room['map']}} </td>
+                                <td> {{'Rs '.$room['map']}} </td>
                                 @php
                                     $totalmap = $totalmap + ($room['map']*$room['days'])
                                 @endphp
-                                <td> {{'₹ '.$room['ap']}} </td>
+                                <td> {{'Rs '.$room['ap']}} </td>
                                 @php
                                     $totalap = $totalap + ($room['ap']*$room['days'])
                                 @endphp
@@ -270,8 +270,8 @@
                         <td>{{$cruz['cruz']}}</td>
                         <td>{{$cruz['source']}}</td>
                         <td>{{$cruz['destination']}}</td>
-                        <td>{{'₹'.$cruz['price_adult'].'/-'}}</td>
-                        <td>{{'₹'.$cruz['price_infant'].'/-'}}</td>
+                        <td>{{'Rs'.$cruz['price_adult'].'/-'}}</td>
+                        <td>{{'Rs'.$cruz['price_infant'].'/-'}}</td>
                     </tr>
                 @endforeach
             </table>
@@ -296,7 +296,7 @@
                     <td>{{$vehicle['vehicle']}}</td>
                     <td>{{$vehicle['source']}}</td>
                     <td>{{$vehicle['destination']}}</td>
-                    <td>{{'₹'.$vehicle['price'].'/-'}}</td>
+                    <td>{{'Rs'.$vehicle['price'].'/-'}}</td>
                     @php
                         $totalvehicle = $totalvehicle + $vehicle['price']
                     @endphp
@@ -332,7 +332,7 @@
                     </td>
                     <td>{{$addon['source']}}</td>
                     <td>{{$addon['destination']}}</td>
-                    <td>{{'₹ '.$addon['price'].'/-'}}</td>
+                    <td>{{'Rs '.$addon['price'].'/-'}}</td>
                     <td>{{$addon['notes']}}</td>
                     @php
                         $totaladdon = $totaladdon + $addon['price']
@@ -361,7 +361,7 @@
                         }
                             $grandtotaladult = $totalroom  +  $totalextrameal + $totalmap + $totalap + $totalcruz + $totalvehicle + $totaladdon;
                         @endphp
-                        ₹{{$grandtotaladult*$totalcustomers}}
+                        Rs{{$grandtotaladult*$totalcustomers}}
                     </td>
                 </tr>
                 <tr>
@@ -371,7 +371,7 @@
                         @php
                             $grandtotalextraadult = $totaladultmatress +  $totalextrameal + $totalmap + $totalap + $totalcruz + $totalvehicle + $totaladdon;
                         @endphp
-                        ₹{{$grandtotalextraadult*$extracustomer}}
+                        Rs{{$grandtotalextraadult*$extracustomer}}
                     </td>
                 </tr>
                 <tr>
@@ -381,13 +381,13 @@
                         @php
                             $grandtotalchildwithbed = $childwithbed;
                         @endphp
-                        ₹{{$grandtotalchildwithbed*$record->customers->childgreaterthan5}}
+                        Rs{{$grandtotalchildwithbed*$record->customers->childgreaterthan5}}
                     </td>
                 </tr>
                 <tr>
                     <td>Child Without Bed Cost</td>
                     <td> {{$record->customers->childlessthan5}}</td>
-                    <td>₹ @php
+                    <td>Rs @php
                         $grandtotalchildwithoutbed = $childwithoutbed;
                     @endphp
                     {{$grandtotalchildwithoutbed*$record->customers->childlessthan5}}</td>
@@ -395,7 +395,7 @@
                 <tr>
                     <td><strong>Total</strong></td>
                     <td></td>
-                    <td><strong>{{'₹ '.($grandtotalchildwithoutbed*$record->customers->childlessthan5) + ($grandtotalchildwithbed*$record->customers->childgreaterthan5) + ($grandtotalextraadult*$extracustomer) + ($grandtotaladult*$totalcustomers).'.00'}}</strong></td>
+                    <td><strong>{{'Rs '.($grandtotalchildwithoutbed*$record->customers->childlessthan5) + ($grandtotalchildwithbed*$record->customers->childgreaterthan5) + ($grandtotalextraadult*$extracustomer) + ($grandtotaladult*$totalcustomers).'.00'}}</strong></td>
                 </tr>
             </table>
         </div> --}}
